@@ -1,6 +1,6 @@
 version: 1.0.0_b{build}-{branch}
 
-os: Visual Studio 2015
+os: Visual Studio 2017
 
 environment:
   TERM: dumb
@@ -8,12 +8,12 @@ environment:
   CRAM_SHELL: "C:\\msys64\\usr\\bin\\sh.exe"
   matrix:
   - COMPILER: msvc
-    GENERATOR: "Visual Studio 14 2015"
+    GENERATOR: "Visual Studio 15 2017"
     CFLAGS: /MP
     CXXFLAGS: /MP
     BUILD_FLAGS: /verbosity:m
   - COMPILER: msvc
-    GENERATOR: "Visual Studio 14 2015 Win64"
+    GENERATOR: "Visual Studio 15 2017 Win64"
     CFLAGS: /MP
     CXXFLAGS: /MP
     BUILD_FLAGS: /verbosity:m
