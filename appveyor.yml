@@ -8,12 +8,26 @@ environment:
   CRAM_SHELL: "C:\\msys64\\usr\\bin\\sh.exe"
   matrix:
   - COMPILER: msvc
+    Platform: x86
     GENERATOR: "Visual Studio 15 2017"
     CFLAGS: /MP
     CXXFLAGS: /MP
     BUILD_FLAGS: /verbosity:m
   - COMPILER: msvc
+    Platform: x64
     GENERATOR: "Visual Studio 15 2017 Win64"
+    CFLAGS: /MP
+    CXXFLAGS: /MP
+    BUILD_FLAGS: /verbosity:m
+  - COMPILER: msvc
+    Platform: ARM
+    GENERATOR: "Visual Studio 15 2017 ARM"
+    CFLAGS: /MP
+    CXXFLAGS: /MP
+    BUILD_FLAGS: /verbosity:m
+  - COMPILER: msvc
+    Platform: ARM64
+    GENERATOR: "Visual Studio 15 2017 ARM64"
     CFLAGS: /MP
     CXXFLAGS: /MP
     BUILD_FLAGS: /verbosity:m
