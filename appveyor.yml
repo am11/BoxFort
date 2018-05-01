@@ -8,18 +8,6 @@ environment:
   CRAM_SHELL: "C:\\msys64\\usr\\bin\\sh.exe"
   matrix:
   - COMPILER: msvc
-    BXF_PLATFORM: x86
-    GENERATOR: "Visual Studio 15 2017"
-    CFLAGS: /MP
-    CXXFLAGS: /MPx
-    BUILD_FLAGS: /verbosity:m
-  - COMPILER: msvc
-    BXF_PLATFORM: x64
-    GENERATOR: "Visual Studio 15 2017"
-    CFLAGS: /MP
-    CXXFLAGS: /MP
-    BUILD_FLAGS: /verbosity:m
-  - COMPILER: msvc
     BXF_PLATFORM: ARM
     GENERATOR: "Visual Studio 15 2017"
     CFLAGS: /MP
@@ -31,16 +19,6 @@ environment:
     CFLAGS: /MP
     CXXFLAGS: /MP
     BUILD_FLAGS: /verbosity:m
-  - COMPILER: mingw
-    BXF_PLATFORM: x86
-    GENERATOR: "MSYS Makefiles"
-    CMAKE_OPTS: -DCMAKE_SYSTEM_PROCESSOR=x86 -DCMAKE_TOOLCHAIN_FILE=../.cmake/Toolchains/Toolchain-mingw-w64.cmake
-    BUILD_FLAGS: VERBOSE=1
-  - COMPILER: mingw
-    BXF_PLATFORM: x64
-    GENERATOR: "MSYS Makefiles"
-    CMAKE_OPTS: -DCMAKE_SYSTEM_PROCESSOR=x64 -DCMAKE_TOOLCHAIN_FILE=../.cmake/Toolchains/Toolchain-mingw-w64.cmake
-    BUILD_FLAGS: -j2
 
 configuration:
   - Debug
@@ -67,7 +45,7 @@ install:
 
   # Patch buggy cram
   - sh -c "patch /c/Python35/lib/site-packages/cram/_test.py .cmake/cram-env.patch"
-
+  - ps: Test-Path "C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/VC/Tools/MSVC/14.13.26128/bin/Hostx86/arm/armasm.exe"
   - mkdir build && cd build
   - >
       cmake
